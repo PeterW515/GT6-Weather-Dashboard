@@ -1,3 +1,89 @@
-.container{
-    width:95%;
+header {
+    background-image: linear-gradient(to right, lightblue, darkblue) ;
+    text-align: center;
+    padding: 3px;
+    color: white;
+}
+
+h4, h5, h6 {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+
+.row {
+    width: 97%;
+    padding-left: 3px;
+
+}
+
+
+input[type=text]:not(.browser-default) {
+    border-bottom: none;
+    border:1px solid black;
+    border-radius: 5px;
+    padding-left:10px;
+    margin:0px;
+    margin-top:-15px;
+}
+
+
+
+.btn {
+    width:100%;
+    margin-left:3px;
+    margin-right: 3px;
+background-color: darkblue;
+}
+.btn:hover {
+
+background-color:#4fabc9;
+}
+
+
+.gray {
+    background-color: gray;
+    color: black;
+}
+.gray:hover {
+    background-color: darkgray;
+}
+
+.gray:focus {
+    background-color: darkgray;
+}
+
+
+#current-weather-div {
+    border:1px solid black;
+    margin-top:20px;
+}
+
+#future-weather-div {
+    margin-top:20px;
+}
+
+p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+
+hr {
+    width:93%;
+    margin-bottom: 16px;
+    margin-left:0px;
+
+}
+
+.col .s2 {
+    border: 2px solid black;
+    height:200px;
+    margin-left:30px;
+    margin-right:20px;
+    background-color: #00264d;
+    color:white;
+
 }

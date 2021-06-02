@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,41 +15,97 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 </head>
-<body class="container">
-    <div class="row center-align" id="header">
+
+<body>
+    <header>
         <h4>Weather Dashboard</h4>
-    </div>
+    </header>
+
+
     <div class="row" id="main-content">
+
+
         <div class="col s3" id="search-bar">
             <div class="row">
                 <div class="row">
-                    <h4>Search for a City:</h4>
+                    <h5>Search for a City:</h5>
                 </div>
-                <div class="row input-field">
-                    <input placeholder="San Diego" id="city" type="text" class="validate">
-                </div>
-                <div class="row">
-                    <button class="btn" type="submit" name="action" id="search-btn">Search</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="row center-align">Baltimore</div>
-                <div class="row center-align">Baltimore</div>
-                <div class="row center-align">Baltimore</div>
-                <div class="row center-align">Baltimore</div>
-                <div class="row center-align">Baltimore</div>
-                <div class="row center-align">Baltimore</div>
-                <div class="row center-align">Baltimore</div>
+
+                <form class="row">
+                    <div class="input-field row">
+                        <input placeholder="San Diego" id="city" type="text" class="validate">
+                    </div>
+                    <div class="row">
+                        <button class="btn" type="submit" name="action" id="search-btn">Search</button>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <button class="btn gray" type="button" name="action" id="search-btn">Baltimore</button>
+                    </div>
+                    <div class="row">
+                        <button class="btn gray" type="button" name="action" id="search-btn">Boston</button>
+                    </div>
+                    <div class="row">
+                        <button class="btn gray" type="button" name="action" id="search-btn">New York</button>
+                    </div>
+                    <div class="row">
+                        <button class="btn gray" type="button" name="action" id="search-btn">Providence</button>
+                    </div>
+                    <div class="row">
+                        <button class="btn gray" type="button" name="action" id="search-btn">Orlando</button>
+                    </div>
+                    <div class="row">
+                        <button class="btn gray" type="button" name="action" id="search-btn">Atlanta</button>
+                    </div>
+                    <div class="row">
+                        <button class="btn gray" type="button" name="action" id="search-btn">Towson</button>
+                    </div>
+                    <div class="row">
+                        <button class="btn gray" type="button" name="action" id="search-btn">Denver</button>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="col s9" id="display-panel">
-            <div class="row" id="current-weather-div"></div>
+            <div class="row" id="current-weather-div">
+                <h5>Atlanta (6/1/2021)</h5>
+                <p>Temp: 74.01 F</p>
+                <p>Wind: 6.67 MPH</p>
+                <p>Humidity: 46%</p>
+                <p>UV Index: 0.47</p>
+            </div>
+
+            <div class="row">
+                <h6>5-Day Forecast:</h6>
+            </div>
             <div class="row" id="future-weather-div">
-                <div class="row">
-                    <h6>5-Day Forecast:</h6>
+
+                <div class="col s2">
+                    <h6>6/2/2021</h6>
+                    <p>Temp :75 F</p>
+                    <p>Wind: 9.5 MPH</p>
+                    <p>Humidity: 65%</p>
                 </div>
+                <div class="col s2"><h6>6/3/2021</h6>
+                    <p>Temp :75 F</p>
+                    <p>Wind: 9.5 MPH</p>
+                    <p>Humidity: 65%</p></div>
+                <div class="col s2"><h6>6/4/2021</h6>
+                    <p>Temp :75 F</p>
+                    <p>Wind: 9.5 MPH</p>
+                    <p>Humidity: 65%</p></div>
+                <div class="col s2"><h6>6/5/2021</h6>
+                    <p>Temp :75 F</p>
+                    <p>Wind: 9.5 MPH</p>
+                    <p>Humidity: 65%</p></div>
+                <div class="col s2"><h6>6/6/2021</h6>
+                    <p>Temp :75 F</p>
+                    <p>Wind: 9.5 MPH</p>
+                    <p>Humidity: 65%</p></div>
+
             </div>
         </div>
     </div>
 </body>
+
 </html>
