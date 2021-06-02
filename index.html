@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <!-- Compiled and minified CSS from Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script defer src="./assets/js/script.js"></script>
+    <!-- Compiled and minified JavaScript from Materialize -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+<body class="container">
+    <div class="row center-align" id="header">
+        <h4>Weather Dashboard</h4>
+    </div>
+    <div class="row" id="main-content">
+        <div class="col s3" id="search-bar">
+            <div class="row">
+                <div class="row">
+                    <h4>Search for a City:</h4>
+                </div>
+                <div class="row input-field">
+                    <input placeholder="San Diego" id="city" type="text" class="validate">
+                </div>
+                <div class="row">
+                    <button class="btn" type="submit" name="action" id="search-btn">Search</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row center-align">Baltimore</div>
+                <div class="row center-align">Baltimore</div>
+                <div class="row center-align">Baltimore</div>
+                <div class="row center-align">Baltimore</div>
+                <div class="row center-align">Baltimore</div>
+                <div class="row center-align">Baltimore</div>
+                <div class="row center-align">Baltimore</div>
+            </div>
+        </div>
+        <div class="col s9" id="display-panel">
+            <div class="row" id="current-weather-div"></div>
+            <div class="row" id="future-weather-div">
+                <div class="row">
+                    <h6>5-Day Forecast:</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
