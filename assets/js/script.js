@@ -92,7 +92,9 @@ function displayWeather(cityToSearch,result){
     currentHumidity.innerText =`Humidity: ${currHumid}%`;
     currentUV.innerText = `UV Index: ${currUV}`;
 
-    //create and display cards for the next five days
+    //remove existing forecast cards
+    // and create and display cards for the next five days
+    fiveDay.innerHTML='';
     for(let i=0;i<5;i++){
         //create elements for cards
         let mainDiv = document.createElement('div');
@@ -130,7 +132,7 @@ function displayWeather(cityToSearch,result){
         month++;
         let futureDay = futureDate.getDate();
         let futureYear = futureDate.getFullYear();
-        let futureFormattedDateString = `(${futureMonth}/${futureDay}/${futureYear})`;
+        let futureFormattedDateString = `${futureMonth}/${futureDay}/${futureYear}`;
         
         //set content of elements
         dateHeader.innerText = futureFormattedDateString;
@@ -139,6 +141,5 @@ function displayWeather(cityToSearch,result){
         wind.innerText = `Wind: ${result.daily[i].wind_speed} MPH`;
         humid.innerText = `Humidity: ${result.daily[i].humidity}%`;
         
-
     }
 }
