@@ -34,7 +34,7 @@ function searchCity(cityToSearch){
 
     //call first openweathermap to get lat/lon of city and 
     //pass results to function to evaluate validity
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityToSearch}&limit=1&appid=8ff1be0bee70c37c62ab2ef02c004244`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityToSearch}&limit=1&appid=8ff1be0bee70c37c62ab2ef02c004244`)
     .then(response => response.json())
     .then(result => evalLatLong(cityToSearch,result));
 }
@@ -73,7 +73,7 @@ function displayWeather(cityToSearch,result){
     let currUV = result.current.uvi;
 
     //add icon string to image url
-    let weatherIcon = `http://openweathermap.org/img/wn/${result.current.weather[0].icon}@2x.png`
+    let weatherIcon = `https://openweathermap.org/img/wn/${result.current.weather[0].icon}@2x.png`
 
     //convert unix timestamp to formatted date
     let unixTimpestamp = result.current.dt;
