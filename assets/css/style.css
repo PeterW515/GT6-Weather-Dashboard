@@ -87,3 +87,7 @@ hr {
     color:white;
 
 }
+
+#previously-searched-container > div {
+    margin-top: 15px;
+}
