@@ -13,99 +13,87 @@
     <script defer src="./assets/js/script.js"></script>
     <!-- Compiled and minified JavaScript from Materialize -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 </head>
 
 <body>
     <header>
         <h4>Weather Dashboard</h4>
     </header>
-
-
     <div class="row" id="main-content">
+        <div class="col s3" id="sidebar">
+            <div class="row" id="search-container">
 
-
-        <div class="col s3" id="search-bar">
-            <div class="row">
-                <div class="row">
-                    <h5>Search for a City:</h5>
-                </div>
-
-                <form class="row">
-                    <div class="input-field row">
-                        <input placeholder="San Diego" id="city" type="text" class="validate">
-                    </div>
-                    <div class="row">
-                        <button class="btn" type="submit" name="action" id="search-btn">Search</button>
-                    </div>
-                    <hr />
-                    <div class="row">
-                        <button class="btn gray" type="button" name="action" id="search-btn">Baltimore</button>
-                    </div>
-                    <div class="row">
-                        <button class="btn gray" type="button" name="action" id="search-btn">Boston</button>
-                    </div>
-                    <div class="row">
-                        <button class="btn gray" type="button" name="action" id="search-btn">New York</button>
-                    </div>
-                    <div class="row">
-                        <button class="btn gray" type="button" name="action" id="search-btn">Providence</button>
-                    </div>
-                    <div class="row">
-                        <button class="btn gray" type="button" name="action" id="search-btn">Orlando</button>
-                    </div>
-                    <div class="row">
-                        <button class="btn gray" type="button" name="action" id="search-btn">Atlanta</button>
-                    </div>
-                    <div class="row">
-                        <button class="btn gray" type="button" name="action" id="search-btn">Towson</button>
-                    </div>
-                    <div class="row">
-                        <button class="btn gray" type="button" name="action" id="search-btn">Denver</button>
-                    </div>
-                </form>
+            </div>
+            <div class="row" id="previously-searched-container">
+                
             </div>
         </div>
-        <div class="col s9" id="display-panel">
-            <div class="row" id="current-weather-div">
-                <h5>Atlanta (6/1/2021)</h5>
-                <p>Temp: 74.01 F</p>
-                <p>Wind: 6.67 MPH</p>
-                <p>Humidity: 46%</p>
-                <p>UV Index: 0.47</p>
+        <div class="col s9" id="weather-data">
+            <div class="row" id="current-weather-data">
+                <h5 id="city-date-icon">Atlanta (3/30/2021) Clouds</h5>
+                <h6 id="current-temp">Temp: 74.01 F</h6>
+                <h6 id="current-wind">Wind: 6.67 MPH</h6>
+                <h6 id="current-humidity">Humidity: 46%</h6>
+                <h6 id="current-UV">UV Index: 0.47</h6>
             </div>
-
-            <div class="row">
-                <h6>5-Day Forecast:</h6>
-            </div>
-            <div class="row" id="future-weather-div">
-
-                <div class="col s2">
-                    <h6>6/2/2021</h6>
-                    <p>Temp :75 F</p>
-                    <p>Wind: 9.5 MPH</p>
-                    <p>Humidity: 65%</p>
+            <div class="row" id="future-weather-data">
+                <div class="row" id="five-day-title">
+                    <h5>5 Day Forecast</h5>
                 </div>
-                <div class="col s2"><h6>6/3/2021</h6>
-                    <p>Temp :75 F</p>
-                    <p>Wind: 9.5 MPH</p>
-                    <p>Humidity: 65%</p></div>
-                <div class="col s2"><h6>6/4/2021</h6>
-                    <p>Temp :75 F</p>
-                    <p>Wind: 9.5 MPH</p>
-                    <p>Humidity: 65%</p></div>
-                <div class="col s2"><h6>6/5/2021</h6>
-                    <p>Temp :75 F</p>
-                    <p>Wind: 9.5 MPH</p>
-                    <p>Humidity: 65%</p></div>
-                <div class="col s2"><h6>6/6/2021</h6>
-                    <p>Temp :75 F</p>
-                    <p>Wind: 9.5 MPH</p>
-                    <p>Humidity: 65%</p></div>
+                <div class="row" id="five-day-forecast-row">
 
+                    <div class="col" id="five-day-forecast-1">
+                        <div class="card-panel blue-grey">
+                            <h6 class="white-text">3/31/2021</h6>
+                            <p class="white-text">Sunny</p>
+                            <p class="white-text">Temp: 70 F</p>
+                            <p class="white-text">Wind: 5 MPH</p>
+                            <p class="white-text">Wind: 5 MPH</p>
+                        </div>
+                    </div>
+
+                    <div class="col" id="five-day-forecast-2">
+                        <div class="card-panel blue-grey">
+                            <h6 class="white-text">3/31/2021</h6>
+                            <p class="white-text">Sunny</p>
+                            <p class="white-text">Temp: 70 F</p>
+                            <p class="white-text">Wind: 5 MPH</p>
+                            <p class="white-text">Wind: 5 MPH</p>
+                        </div>
+                    </div>
+                    <div class="col" id="five-day-forecast-3">
+                        <div class="card-panel blue-grey">
+                            <h6 class="white-text">3/31/2021</h6>
+                            <p class="white-text">Sunny</p>
+                            <p class="white-text">Temp: 70 F</p>
+                            <p class="white-text">Wind: 5 MPH</p>
+                            <p class="white-text">Wind: 5 MPH</p>
+                        </div>
+                    </div>
+                    <div class="col" id="five-day-forecast-4">
+                        <div class="card-panel blue-grey">
+                            <h6 class="white-text">3/31/2021</h6>
+                            <p class="white-text">Sunny</p>
+                            <p class="white-text">Temp: 70 F</p>
+                            <p class="white-text">Wind: 5 MPH</p>
+                            <p class="white-text">Wind: 5 MPH</p>
+                        </div>
+                    </div>
+                    <div class="col" id="five-day-forecast-5">
+                        <div class="card-panel blue-grey">
+                            <h6 class="white-text">3/31/2021</h6>
+                            <p class="white-text">Sunny</p>
+                            <p class="white-text">Temp: 70 F</p>
+                            <p class="white-text">Wind: 5 MPH</p>
+                            <p class="white-text">Wind: 5 MPH</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    
 </body>
 
 </html>

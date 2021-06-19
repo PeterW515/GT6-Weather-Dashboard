@@ -1,8 +1,11 @@
 let searchBtn = document.getElementById('search-btn');
 let searchText = document.getElementById('city');
-searchBtn.addEventListener('click',searchCity);
-
-function searchCity(){
+let searchForm = document.getElementById('search-form');
+let currCity;
+let currDate;
+searchBtn.addEventListener("click",searchCity);
+function searchCity(e){
+    e.preventDefault();
     let cityToSearch=encodeURIComponent(searchText.value);
 
     fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityToSearch}&limit=1&appid=8ff1be0bee70c37c62ab2ef02c004244`)
@@ -16,7 +19,7 @@ function searchWeather(result){
         searchText.value = 'Invalid City';
         return;
     }
-    console.log(result[0]);
+    currCity = result[0].name;
     let lat = result[0].lat;
     let lon = result[0].lon;
 
@@ -32,5 +35,6 @@ function weatherResults(lat, lon){
 }
 
 function weatherDisplay(result) {
-    console.log(result.current);
+    currDate = moment.unix(result.current.dt);
+    console.log(currDate);
 }
