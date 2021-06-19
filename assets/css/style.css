@@ -55,7 +55,7 @@ background-color:#4fabc9;
 }
 
 
-#current-weather-div {
+#current-weather-data {
     border:1px solid black;
     margin-top:20px;
 }
@@ -90,4 +90,10 @@ hr {
 
 #previously-searched-container > div {
     margin-top: 15px;
+}
+
+img {
+    height:50px;
+    position: relative;
+    bottom: -15px;
 }
