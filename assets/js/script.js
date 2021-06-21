@@ -8,7 +8,9 @@ let currentHumidity = document.getElementById('current-humidity');
 let currentUV = document.getElementById('current-UV');
 let fiveDay = document.getElementById('five-day-forecast-row');
 
-
+//call this function on page load to check 
+//local storage for recently searched cities
+loadCityButtons();
 
 //Add event listener to run searchCity function when search button is clicked
 searchBtn.addEventListener("click",searchCityBtnClicked);
@@ -142,4 +144,34 @@ function displayWeather(cityToSearch,result){
         humid.innerText = `Humidity: ${result.daily[i].humidity}%`;
         
     }
+}
+
+//this function determines whether to load cities from
+//local storage or pre populate
+function loadCityButtons() {
+    if(!localStorage.getItem('recentlySearched')){
+        prePopulateCityButtons();
+    } else populateCityButtons(JSON.parse(localStorage.getItem('recentlySearched')));
+}
+
+//if user has not visited page before,
+//prepopulate cities with 8 largest cities in
+//United States
+function prePopulateCityButtons(){
+    let cities = ['New York','Los Angeles','Chicago','Houston','Phoenix','Philadelphia','San Antonio','San Diego'];
+    
+    localStorage.setItem('recentlySearched',JSON.stringify(cities));
+    
+    for(let city in cities){
+        let mainDiv = document.createElement('div');
+        mainDiv.className = 'col s12';
+        let btn = document.createElement('button');
+        btn.className = 'btn waves-effect waves-light';
+        btn.setAttribute('type','button');
+        btn.setAttribute('id',cities[city]+'')
+    }
+}
+
+function populateCityButtons(cities) {
+
 }
