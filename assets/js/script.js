@@ -7,6 +7,7 @@ let currentWind = document.getElementById('current-wind');
 let currentHumidity = document.getElementById('current-humidity');
 let currentUV = document.getElementById('current-UV');
 let fiveDay = document.getElementById('five-day-forecast-row');
+let previousSearches = document.getElementById('previously-searched-container');
 
 //call this function on page load to check 
 //local storage for recently searched cities
@@ -19,6 +20,7 @@ searchBtn.addEventListener("click",searchCityBtnClicked);
 function searchCityBtnClicked(){
     //store search text in variable
     let cityToSearch = searchText.value;
+    cityToSearch = cityToSearch.toUpperCase();
 
     //check if empty
     if(!cityToSearch) return;
@@ -30,6 +32,15 @@ function searchCityBtnClicked(){
 
 //this function runs when weather for a city is requested
 function searchCity(cityToSearch){
+
+    //when a new city is searched, get recently searched cities from
+    //local Storage, add new city and remove oldest city
+    //pass cities to display city button function to update buttons
+    let cities = JSON.parse(localStorage.getItem('recentlySearched'));
+    cities.pop();
+    cities.splice(0,0,cityToSearch);
+    displayCityButtons(cities);
+    localStorage.setItem('recentlySearched',JSON.stringify(cities));
 
     //encode city in case name has spaces
     let encodedCity = encodeURIComponent(cityToSearch);
@@ -66,7 +77,6 @@ function getWeatherForCoords(cityToSearch,lat,lon) {
 //this function displays the weather results
 function displayWeather(cityToSearch,result){
 
-    console.log(result);
     //store results in variables to then add to page
     let currCity = cityToSearch;
     let currTemp = result.current.temp;
@@ -128,10 +138,10 @@ function displayWeather(cityToSearch,result){
 
         //determine proper date and format date string
         let futureDate = date;
-        futureDate.setDate(date.getDate()+i);
+        futureDate.setDate(date.getDate()+1+i);
         let futureMonth = futureDate.getMonth();
         //months start from 0 so need to add one for display purposes
-        month++;
+        futureMonth++;
         let futureDay = futureDate.getDate();
         let futureYear = futureDate.getFullYear();
         let futureFormattedDateString = `${futureMonth}/${futureDay}/${futureYear}`;
@@ -146,32 +156,58 @@ function displayWeather(cityToSearch,result){
     }
 }
 
-//this function determines whether to load cities from
-//local storage or pre populate
+//this function determines whether to display cities from
+//local storage or create default cities, save them to local storage
+//and then display those
 function loadCityButtons() {
     if(!localStorage.getItem('recentlySearched')){
-        prePopulateCityButtons();
-    } else populateCityButtons(JSON.parse(localStorage.getItem('recentlySearched')));
+        createLocalStorage();
+    } else displayCityButtons(JSON.parse(localStorage.getItem('recentlySearched')));
 }
 
 //if user has not visited page before,
-//prepopulate cities with 8 largest cities in
-//United States
-function prePopulateCityButtons(){
+//prepopulate cities with 8 largest cities in United States
+function createLocalStorage(){
+    //create array of most populous cities
     let cities = ['New York','Los Angeles','Chicago','Houston','Phoenix','Philadelphia','San Antonio','San Diego'];
     
+    //save to local storage
     localStorage.setItem('recentlySearched',JSON.stringify(cities));
+
+    //pass to display function
+    displayCityButtons(cities);
     
-    for(let city in cities){
-        let mainDiv = document.createElement('div');
-        mainDiv.className = 'col s12';
-        let btn = document.createElement('button');
-        btn.className = 'btn waves-effect waves-light';
-        btn.setAttribute('type','button');
-        btn.setAttribute('id',cities[city]+'')
-    }
 }
 
-function populateCityButtons(cities) {
 
+function displayCityButtons(cities){
+        //clear the existing buttons
+        previousSearches.innerHTML ='';
+
+        //for each city in the array, do the following
+        for(let city in cities){
+
+            //create div and button and set attributes
+            let mainDiv = document.createElement('div');
+            mainDiv.className = 'col s12';
+            let btn = document.createElement('button');
+            btn.className = 'btn waves-effect waves-light';
+            btn.setAttribute('type','button');
+            btn.setAttribute('id',encodeURIComponent(cities[city]));
+            btn.innerText = cities[city];
+    
+            //append button to div and div to previous search container
+            mainDiv.appendChild(btn);
+            previousSearches.appendChild(mainDiv);
+    
+            //add event listener for buttons
+            btn.addEventListener('click',searchFromSaved);
+        }
 }
+
+//recently saved buttons call this function when clicked, which
+//passes the button text to the search city function
+function searchFromSaved(e){
+    searchCity(e.target.innerText);
+}
+
