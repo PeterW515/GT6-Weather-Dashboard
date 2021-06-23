@@ -179,7 +179,7 @@ function loadCityButtons() {
 //prepopulate cities with 8 largest cities in United States
 function createLocalStorage() {
     //create array of most populous cities
-    let cities = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix', 'Philadelphia', 'San Antonio', 'San Diego'];
+    let cities = ['NEW YORK', 'LOS ANGELES', 'CHICAGO', 'HOUSTON', 'PHOENIX', 'PHILADELPHIA', 'SAN ANTONIO', 'SAN DIEGO'];
 
     //save to local storage
     localStorage.setItem('recentlySearched', JSON.stringify(cities));
