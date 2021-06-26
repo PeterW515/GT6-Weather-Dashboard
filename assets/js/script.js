@@ -5,7 +5,7 @@ let currentHeader = document.getElementById('city-date-icon');
 let currentTemperature = document.getElementById('current-temp');
 let currentWind = document.getElementById('current-wind');
 let currentHumidity = document.getElementById('current-humidity');
-let currentUV = document.getElementById('current-UV');
+let currentUV = document.getElementById('UV-num');
 let fiveDay = document.getElementById('five-day-forecast-row');
 let previousSearches = document.getElementById('previously-searched-container');
 
@@ -112,7 +112,17 @@ function displayWeather(cityToSearch, result) {
     currentTemperature.innerHTML = `Temp: ${currTemp}<span>\&#176;</span>F`;
     currentWind.innerText = `Wind: ${currWind} MPH`;
     currentHumidity.innerText = `Humidity: ${currHumid}%`;
-    currentUV.innerText = `UV Index: ${currUV}`;
+    currentUV.innerText = `${currUV}`;
+
+    //add color coding for UV index
+    if(currUV <= 4){
+        currentUV.setAttribute('style','background-color:green;');
+    } else if (currUV <= 8) {
+        currentUV.setAttribute('style','background-color:yellow;');
+    } else {
+        currentUV.setAttribute('style','background-color:red;');
+
+    }
 
     //remove existing forecast cards
     // and create and display cards for the next five days

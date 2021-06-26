@@ -94,3 +94,11 @@ img {
   padding-bottom: 25px;
   padding-left: 5px;
 }
+
+#UV-num {
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border-radius: 5px;
+}
